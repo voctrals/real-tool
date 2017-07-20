@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sql.CompanyMapper" >
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Company" >
+    <id column="company_code" property="companyCode" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="display_number" property="displayNumber" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    company_code, company_name, display_number
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_company
+    where company_code = #{companyCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from m_company
+    where company_code = #{companyCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Company" >
+    insert into m_company (company_code, company_name, display_number
+      )
+    values (#{companyCode,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{displayNumber,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Company" >
+    insert into m_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="companyCode != null" >
+        company_code,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="displayNumber != null" >
+        display_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="companyCode != null" >
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="displayNumber != null" >
+        #{displayNumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Company" >
+    update m_company
+    <set >
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="displayNumber != null" >
+        display_number = #{displayNumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where company_code = #{companyCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Company" >
+    update m_company
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      display_number = #{displayNumber,jdbcType=INTEGER}
+    where company_code = #{companyCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

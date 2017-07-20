@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.Test2Mapper">
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Test2">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <id column="seq" jdbcType="INTEGER" property="seq" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, seq, tname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key">
+    delete from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2 (tid, seq, tname
+      )
+    values (#{tid,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="seq != null">
+        seq,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    <set>
+      <if test="tname != null">
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    set tname = #{tname,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Test2">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <id column="seq" jdbcType="INTEGER" property="seq" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, seq, tname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key">
+    delete from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2 (tid, seq, tname
+      )
+    values (#{tid,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="seq != null">
+        seq,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    <set>
+      <if test="tname != null">
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    set tname = #{tname,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Test2">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <id column="seq" jdbcType="INTEGER" property="seq" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, seq, tname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key">
+    delete from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2 (tid, seq, tname
+      )
+    values (#{tid,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="seq != null">
+        seq,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    <set>
+      <if test="tname != null">
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    set tname = #{tname,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Test2">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <id column="seq" jdbcType="INTEGER" property="seq" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, seq, tname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2Key">
+    delete from t_test2
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2 (tid, seq, tname
+      )
+    values (#{tid,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    insert into t_test2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="seq != null">
+        seq,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    <set>
+      <if test="tname != null">
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Test2">
+    update t_test2
+    set tname = #{tname,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+      and seq = #{seq,jdbcType=INTEGER}
+  </update>
+</mapper>

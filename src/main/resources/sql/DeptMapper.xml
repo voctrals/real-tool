@@ -1,0 +1,3868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.DeptMapper">
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.tradewin.reach.tool.test.Dept">
+    <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="sys_create_userid" jdbcType="VARCHAR" property="sysCreateUserid" />
+    <result column="sys_create_ip" jdbcType="VARCHAR" property="sysCreateIp" />
+    <result column="sys_create_date" jdbcType="VARCHAR" property="sysCreateDate" />
+    <result column="sys_update_userid" jdbcType="VARCHAR" property="sysUpdateUserid" />
+    <result column="sys_update_ip" jdbcType="VARCHAR" property="sysUpdateIp" />
+    <result column="sys_update_date" jdbcType="VARCHAR" property="sysUpdateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_name, create_date, sys_create_userid, sys_create_ip, sys_create_date, 
+    sys_update_userid, sys_update_ip, sys_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from m_dept
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept (dept_id, dept_name, create_date, 
+      sys_create_userid, sys_create_ip, sys_create_date, 
+      sys_update_userid, sys_update_ip, sys_update_date
+      )
+    values (#{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{sysCreateUserid,jdbcType=VARCHAR}, #{sysCreateIp,jdbcType=VARCHAR}, #{sysCreateDate,jdbcType=VARCHAR}, 
+      #{sysUpdateUserid,jdbcType=VARCHAR}, #{sysUpdateIp,jdbcType=VARCHAR}, #{sysUpdateDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    insert into m_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid,
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip,
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date,
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid,
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip,
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    <set>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="sysCreateUserid != null">
+        sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateIp != null">
+        sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateDate != null">
+        sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateUserid != null">
+        sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateIp != null">
+        sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateDate != null">
+        sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tradewin.reach.tool.test.Dept">
+    update m_dept
+    set dept_name = #{deptName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      sys_create_userid = #{sysCreateUserid,jdbcType=VARCHAR},
+      sys_create_ip = #{sysCreateIp,jdbcType=VARCHAR},
+      sys_create_date = #{sysCreateDate,jdbcType=VARCHAR},
+      sys_update_userid = #{sysUpdateUserid,jdbcType=VARCHAR},
+      sys_update_ip = #{sysUpdateIp,jdbcType=VARCHAR},
+      sys_update_date = #{sysUpdateDate,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=VARCHAR}
+  </update>
+</mapper>
